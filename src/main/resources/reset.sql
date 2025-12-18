@@ -1,0 +1,1 @@
+update product set price = 1000, status = 'ON';
