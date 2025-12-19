@@ -1,5 +1,4 @@
-package com.example.jpa_concurrency_performance_lab.service.product.strategy;
-
+package com.example.jpa_concurrency_performance_lab.service.product.stragtegy;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,19 +6,19 @@ import java.util.List;
 
 import com.example.jpa_concurrency_performance_lab.dto.BenchmarkResult;
 import com.example.jpa_concurrency_performance_lab.dto.UpdateRange;
-import com.example.jpa_concurrency_performance_lab.repository.ProductRepository;
+import com.example.jpa_concurrency_performance_lab.service.product.ResetPriceService;
 import com.example.jpa_concurrency_performance_lab.util.QueryCountUtil;
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor
-@Transactional
-public class BulkUpdateBenchmarkRunner {
+public class UpdateBenchmarkRunner {
 
-    private final ProductRepository repository;
+    private final ResetPriceService resetPriceService;
     private final List<BulkUpdateStrategy> strategies;
+    private final EntityManager em;
 
     public List<BenchmarkResult> run(UpdateRange range, int resetPrice) {
         List<BenchmarkResult> results = new ArrayList<>();
@@ -33,7 +32,8 @@ public class BulkUpdateBenchmarkRunner {
         warmUp(range, resetPrice, ordered);
 
         for (BulkUpdateStrategy strategy : ordered) {
-            repository.resetPrice(range.fromId(), range.toId(), resetPrice);
+            resetPriceService.resetPrice(range.fromId(), range.toId(), resetPrice);
+            em.clear();
 
             QueryCountUtil.reset();
             long start = System.nanoTime();
@@ -49,7 +49,7 @@ public class BulkUpdateBenchmarkRunner {
 
     private void warmUp(UpdateRange range, int resetPrice, List<BulkUpdateStrategy> ordered) {
         BulkUpdateStrategy first = ordered.get(0);
-        repository.resetPrice(range.fromId(), range.toId(), resetPrice);
+        resetPriceService.resetPrice(range.fromId(), range.toId(), resetPrice);
         QueryCountUtil.reset();
         first.execute(range);
     }

@@ -1,4 +1,4 @@
-package com.example.jpa_concurrency_performance_lab.service.product.strategy;
+package com.example.jpa_concurrency_performance_lab.service.product.stragtegy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,5 +39,25 @@ public class JdbcBatchStrategy implements BulkUpdateStrategy {
                     ps.setLong(2, id);
                 }
         );
+    }
+
+    @Transactional
+    public void batchUpdatePriceByIds(List<Long> ids, int newPrice, int batchSize) {
+        final String sql = "UPDATE product SET price = ? WHERE product_id = ?";
+
+        for (int start = 0; start < ids.size(); start += batchSize) {
+            int end = Math.min(start + batchSize, ids.size());
+            List<Long> chunk = ids.subList(start, end);
+
+            jdbcTemplate.batchUpdate(
+                    sql,
+                    chunk,
+                    chunk.size(),
+                    (ps, id) -> {
+                        ps.setInt(1, newPrice);
+                        ps.setLong(2, id);
+                    }
+            );
+        }
     }
 }

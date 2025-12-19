@@ -22,7 +22,7 @@ spring:
         order_updates: true
         format_sql: true
       generate_statistics: false
-    show-sql: true
+    show-sql: false
 
 logging:
   level:

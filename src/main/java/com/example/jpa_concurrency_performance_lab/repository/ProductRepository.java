@@ -1,6 +1,7 @@
 package com.example.jpa_concurrency_performance_lab.repository;
 
 import com.example.jpa_concurrency_performance_lab.domain.product.Product;
+import com.example.jpa_concurrency_performance_lab.domain.product.ProductStatus;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -38,5 +39,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     """)
     int resetPrice(long from, long to, int resetPrice);
 
-    long countByPrice(int price);
+
+    @Modifying(clearAutomatically = false, flushAutomatically = false)
+    @Query("""
+        update Product p
+           set p.price = :newPrice
+         where p.status = :status
+    """)
+    int bulkUpdatePriceByStatus(int newPrice, ProductStatus status);
+
 }
