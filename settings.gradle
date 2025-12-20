@@ -5,3 +5,6 @@ pluginManagement {
 	}
 }
 rootProject.name = 'jpa-concurrency-performance-lab'
+include 'jpa-onetomany-scale'
+include 'exp-onetomany-bulk-delete-flush-interval'
+

@@ -1,0 +1,9 @@
+plugins {
+    id "org.springframework.boot"
+    id "io.spring.dependency-management"
+}
+
+dependencies {
+    implementation "net.ttddyy:datasource-proxy:1.11.0"
+
+}
