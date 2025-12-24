@@ -8,7 +8,7 @@
 
 ## 
 
-- [UPDATE 전략 실험)](./exp-onetomany-bulk-delete-flush-interval/README.md)
+- [UPDATE 전략 실험](./exp-onetomany-bulk-delete-flush-interval/README.md)
 
 - [QueryDSL + Fetch 전략 실험 (fetch join · batch size · OOM)](./jpa-fetch-strategy-lab/README.md)
 
