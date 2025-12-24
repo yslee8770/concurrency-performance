@@ -1,0 +1,9 @@
+spring:
+  config:
+    activate:
+      on-profile: fetchjoin
+
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 0
