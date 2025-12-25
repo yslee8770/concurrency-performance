@@ -20,7 +20,7 @@ public class HibernateStats {
     }
 
     public long queryCount() {
-        return statistics.getQueryExecutionCount();
+        return statistics.getPrepareStatementCount();
     }
 
     public long entityLoadCount() {
