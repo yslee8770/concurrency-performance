@@ -1,3 +1,3 @@
-package com.example.doamin;
+package com.example.domain;
 
 public enum OrderStatus { CREATED, PAID, SHIPPED, CANCELED }

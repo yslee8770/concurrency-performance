@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.doamin.OrderLine;
+import com.example.domain.OrderLine;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OrderLineRepository extends JpaRepository<OrderLine, Long> {

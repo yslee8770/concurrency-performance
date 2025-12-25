@@ -1,7 +1,7 @@
 package test.onetomany;
 
 import com.example.OneToManyLabApplication;
-import com.example.doamin.PurchaseOrder;
+import com.example.domain.PurchaseOrder;
 import com.example.dto.OrderLineDraft;
 import com.example.repository.OrderLineRepository;
 import com.example.repository.PurchaseOrderRepository;

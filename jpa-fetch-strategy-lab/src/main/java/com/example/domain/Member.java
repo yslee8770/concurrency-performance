@@ -1,4 +1,4 @@
-package com.example.doamin;
+package com.example.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -8,26 +8,19 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class LineOption {
+public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private OrderLine orderLine;
-
     @Column(nullable = false)
     private String name;
 
-    private LineOption(String name) {
+    private Member(String name) {
         this.name = name;
     }
 
-    public static LineOption of(String name) {
-        return new LineOption(name);
-    }
-
-    void attach(OrderLine line) {
-        this.orderLine = line;
+    public static Member of(String name) {
+        return new Member(name);
     }
 }

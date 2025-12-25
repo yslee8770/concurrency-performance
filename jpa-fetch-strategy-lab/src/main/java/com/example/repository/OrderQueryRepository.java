@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.doamin.*;
+import com.example.domain.*;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;

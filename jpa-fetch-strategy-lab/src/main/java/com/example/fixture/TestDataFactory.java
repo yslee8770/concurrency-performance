@@ -1,6 +1,6 @@
 package com.example.fixture;
 
-import com.example.doamin.*;
+import com.example.domain.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Component;

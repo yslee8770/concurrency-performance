@@ -1,6 +1,6 @@
 package com.example.setup;
 
-import com.example.doamin.PurchaseOrder;
+import com.example.domain.PurchaseOrder;
 import com.example.repository.PurchaseOrderRepository;
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;

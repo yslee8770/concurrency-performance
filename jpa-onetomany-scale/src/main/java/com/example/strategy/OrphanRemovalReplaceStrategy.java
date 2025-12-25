@@ -1,6 +1,6 @@
 package com.example.strategy;
 
-import com.example.doamin.PurchaseOrder;
+import com.example.domain.PurchaseOrder;
 import com.example.dto.PerfRunSpec;
 import com.example.repository.PurchaseOrderRepository;
 import com.example.setup.OrderDatasetFactory;

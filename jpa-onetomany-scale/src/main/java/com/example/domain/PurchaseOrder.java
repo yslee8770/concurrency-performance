@@ -1,4 +1,4 @@
-package com.example.doamin;
+package com.example.domain;
 
 import com.example.dto.OrderLineDraft;
 import jakarta.persistence.*;

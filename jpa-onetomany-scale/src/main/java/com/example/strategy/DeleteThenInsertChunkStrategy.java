@@ -1,7 +1,7 @@
 package com.example.strategy;
 
-import com.example.doamin.OrderLine;
-import com.example.doamin.PurchaseOrder;
+import com.example.domain.OrderLine;
+import com.example.domain.PurchaseOrder;
 import com.example.dto.PerfRunSpec;
 import com.example.repository.OrderLineRepository;
 import com.example.setup.OrderDatasetFactory;
