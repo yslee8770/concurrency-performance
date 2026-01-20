@@ -18,11 +18,6 @@
 
 - Java / Spring Boot / JPA (Hibernate)
 - Pessimistic Lock (`SELECT ... FOR UPDATE`)
-- 실제 DB 사용
-  - MySQL
-  - PostgreSQL
-- 테스트 환경에서 H2 / Mock DB 사용 ❌
-
 ---
 
 ## Deadlock 재현 (MySQL / PostgreSQL)
@@ -72,9 +67,8 @@
 ### 해석
 - Deadlock은 실제로 발생했으나
 - **1회 재시도로 정상 수렴**
-- Retry 비용은 제한적이며 과도하지 않음
 
-→ **Deadlock은 Retryable 하다는 것을 수치로 확인**
+→ **Deadlock은 Retryable 하다는 것을 확인**
 
 ---
 
