@@ -127,7 +127,7 @@ screen(ID page -> toOne fetchJoin + batch)
 
 ## 요약
 -  fetch join은 to-one 위주로 제한
--  컬렉션 fetch join은 여러 개 동시 사용 금지
+-  컬렉션 fetch join은 여러 개 동시 사용 자제제
 -  컬렉션 로딩은 batch fetch(IN 절)로 대체
 -  페이징·정렬·필터가 있으면
   → ID 페이징 → 2-step 로딩이 가장 안전
